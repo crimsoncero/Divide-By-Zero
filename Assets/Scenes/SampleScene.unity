@@ -403,6 +403,10 @@ PrefabInstance:
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3610489856554430276, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}
+      propertyPath: AnimController
+      value: 
+      objectReference: {fileID: 258944314}
+    - target: {fileID: 3610489856554430276, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}
       propertyPath: ZSwordCollider
       value: 
       objectReference: {fileID: 73992308}
@@ -424,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610489856554430279, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.583
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3610489856554430279, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -464,7 +468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610489857335464329, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.917
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679a741b77eb6c249b34a92ef0d2ade9, type: 3}

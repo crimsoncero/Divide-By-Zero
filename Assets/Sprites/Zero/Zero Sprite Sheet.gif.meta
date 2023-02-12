@@ -483,13 +483,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_18
+      name: Zero Jumping 1
       rect:
         serializedVersion: 2
         x: 128
         y: 573
         width: 31
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,13 +504,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_19
+      name: Zero Jumping 2
       rect:
         serializedVersion: 2
         x: 163
         y: 572
         width: 28
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,13 +525,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_20
+      name: Zero Jumping 3
       rect:
         serializedVersion: 2
         x: 196
         y: 572
         width: 30
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,13 +546,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_21
+      name: Zero Jumping 4
       rect:
         serializedVersion: 2
         x: 233
         y: 572
         width: 30
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,13 +567,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_22
+      name: Zero Peak
       rect:
         serializedVersion: 2
         x: 269
         y: 572
         width: 36
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,13 +588,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_23
+      name: Zero Falling 1
       rect:
         serializedVersion: 2
         x: 316
         y: 571
         width: 33
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -609,13 +609,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_24
+      name: Zero Falling 2
       rect:
         serializedVersion: 2
         x: 357
         y: 572
         width: 33
-        height: 44
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,7 +630,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_25
+      name: Zero Falling 3
       rect:
         serializedVersion: 2
         x: 399
@@ -651,13 +651,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zero Sprite Sheet_26
+      name: Zero Falling 4
       rect:
         serializedVersion: 2
         x: 438
         y: 572
         width: 33
-        height: 44
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2846,6 +2846,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Zero Sprite Sheet_94: -830997955
+      Zero Falling 3: 1124727652
       Zero Sprite Sheet_78: -1833799493
       Zero Sprite Sheet_77: -1451780743
       Zero Sprite Sheet_83: -1040411858
@@ -2856,7 +2857,6 @@ TextureImporter:
       Zero Sprite Sheet_61: 360309387
       Zero Sprite Sheet_57: -278344836
       Zero Sprite Sheet_74: -783454229
-      Zero Sprite Sheet_23: -1814762020
       Zero Sprite Sheet_110: -1678989823
       Zero Sprite Sheet_128: -1788607371
       Zero Run 2: -1023377885
@@ -2869,29 +2869,27 @@ TextureImporter:
       Zero Sprite Sheet_51: 1492265718
       Zero Sprite Sheet_101: 782947650
       Zero Sprite Sheet_59: -112338099
-      Zero Sprite Sheet_25: 1124727652
       Zero Sprite Sheet_75: -61860909
       Zero Run 5: 767433307
+      Zero Falling 2: -2135915289
       Zero Sprite Sheet_80: -222168494
       Zero Sprite Sheet_89: 1715208985
-      Zero Sprite Sheet_20: -1533748615
+      Zero Run 3: -403676745
       Zero Sprite Sheet_103: 640379777
       Zero Sprite Sheet_62: 213022605
       Zero Sprite Sheet_124: 1017908906
       Zero Idle 3: -2073434403
-      Zero Run 3: -403676745
-      Zero Sprite Sheet_47: 1101051668
-      Zero Sprite Sheet_18: 1367698546
-      Zero Sprite Sheet_48: -949100069
-      Zero Sprite Sheet_105: 1363440960
       Zero Idle 5: 517546838
+      Zero Sprite Sheet_47: 1101051668
+      Zero Sprite Sheet_48: -949100069
       Zero Sprite Sheet_86: -787023162
+      Zero Sprite Sheet_105: 1363440960
+      Zero Falling 4: -880937224
       Zero Sprite Sheet_88: -1821697100
       Zero Sprite Sheet_93: -1024669185
       Zero Sprite Sheet_17: -1056153219
       Zero Sprite Sheet_70: 849757990
       Zero Sprite Sheet_76: 1682086194
-      Zero Sprite Sheet_26: -880937224
       Zero Sprite Sheet_55: -2080276018
       Zero Sprite Sheet_115: 1646638663
       Zero Sprite Sheet_122: 1557634248
@@ -2912,6 +2910,7 @@ TextureImporter:
       Zero Sprite Sheet_79: -1839923066
       Zero Sprite Sheet_27: 633229765
       Zero Sprite Sheet_65: 2062940396
+      Zero Falling 1: -1814762020
       Zero Run 1: -1255908876
       Zero Run 4: 1533070612
       Zero Sprite Sheet_129: 2032652443
@@ -2927,17 +2926,19 @@ TextureImporter:
       Zero Sprite Sheet_34: 589136643
       Zero Sprite Sheet_111: 183808345
       Zero Sprite Sheet_50: -1739217583
-      Zero Sprite Sheet_112: -1266378562
       Zero Sprite Sheet_31: 1515594222
-      Zero Sprite Sheet_117: -1937409570
       Zero Sprite Sheet_126: -828072711
+      Zero Sprite Sheet_117: -1937409570
+      Zero Sprite Sheet_112: -1266378562
       Zero Sprite Sheet_127: -1874354478
       Zero Sprite Sheet_56: 1778016007
       Zero Sprite Sheet_116: 1081963561
       Zero Sprite Sheet_90: -258836204
+      Zero Jumping 3: -1533748615
       Zero Sprite Sheet_125: 1300773571
       Zero Sprite Sheet_37: 496257048
       Zero Sprite Sheet_38: 431844309
+      Zero Jumping 1: 1367698546
       Zero Sprite Sheet_60: 819447395
       Zero Run 6: 1643379
       Zero Run 7: 1928533390
@@ -2946,8 +2947,8 @@ TextureImporter:
       Zero Idle 1: 72208616
       Zero Run 10: 1601435083
       Zero Sprite Sheet_29: 924593670
-      Zero Sprite Sheet_24: -2135915289
       Zero Sprite Sheet_102: 1809555447
+      Zero Jumping 4: -1851581815
       Zero Sprite Sheet_68: 1505399684
       Zero Sprite Sheet_64: 814991042
       Zero Sprite Sheet_40: -1716870362
@@ -2959,14 +2960,12 @@ TextureImporter:
       Zero Sprite Sheet_118: 1232964940
       Zero Sprite Sheet_54: -621156551
       Zero Sprite Sheet_123: -520139293
+      Zero Peak: 1126164506
       Zero Sprite Sheet_32: 351010199
       Zero Sprite Sheet_120: 1782012787
       Zero Idle 2: -362368108
       Zero Sprite Sheet_98: -2110438334
       Zero Idle 4: 394818070
-      Zero Sprite Sheet_19: -2091803997
-      Zero Sprite Sheet_22: 1126164506
-      Zero Sprite Sheet_21: -1851581815
       Zero Sprite Sheet_82: 2047721221
       Zero Sprite Sheet_96: 2101724972
       Zero Sprite Sheet_45: 812655535
@@ -2975,6 +2974,7 @@ TextureImporter:
       Zero Sprite Sheet_30: -376012151
       Zero Run Pre 1: 1852999004
       Zero Sprite Sheet_84: -1917030090
+      Zero Jumping 2: -2091803997
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
