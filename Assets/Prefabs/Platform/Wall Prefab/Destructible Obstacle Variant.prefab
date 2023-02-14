@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1950600399181928596, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.17030083
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950600399181928596, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5442431
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950600399181928596, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
     - target: {fileID: 4893940426114044532, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,11 +69,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4917686875886472114, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4917686875886472114, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_TagString
       value: Destructible
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296264758344978421, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6296264758344978421, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_Color.b
@@ -69,11 +85,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296264758344978421, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_Color.g
-      value: 0.22010212
+      value: 0.55435425
       objectReference: {fileID: 0}
     - target: {fileID: 6296264758344978421, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
       propertyPath: m_Color.r
-      value: 0.49056602
+      value: 0.8301887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+--- !u!1 &591269427584538233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917686875886472114, guid: 8035b9adac7d8ae45931d94c32b1104f, type: 3}
+  m_PrefabInstance: {fileID: 5479682562243288523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1581488093348697450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591269427584538233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1872fc8fc55a442aae968f70ef59d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionVFX: {fileID: 6288579404374070763, guid: ca0235dcb83b04c4ea15bf95817f6938, type: 3}

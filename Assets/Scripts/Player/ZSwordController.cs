@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ZSwordController : MonoBehaviour
 {
+
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
 
@@ -15,5 +17,6 @@ public class ZSwordController : MonoBehaviour
         }
 
     }
+    
     
 }

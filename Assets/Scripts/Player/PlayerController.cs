@@ -7,77 +7,78 @@ public class PlayerController : MonoBehaviour
 {
 
     [Header("Player Stats")]
-    [SerializeField] private float JumpForce = 400;
-    [SerializeField] private float speed = 6;
-
+    [SerializeField] private float JumpForce = 600;
+    [SerializeField] private float Speed = 6;
+    [SerializeField] private float AttackDuration = 10;
+    [SerializeField] private float AttackCooldown = 30;
     [Space(2)]
     [Header("Component Attachments")]
     [SerializeField] private Rigidbody2D rb2D;
-    [SerializeField] private BoxCollider2D ZSwordCollider;
     [SerializeField] private Animator AnimController;
+
+    [Space(1)]
+    [Header("Z - Sword")]
+    [SerializeField] private BoxCollider2D ZSwordCollider;
+    [SerializeField] private Animator ZSwordAnimController;
     
-    [SerializeField] LayerMask _groundLayer;
+    [SerializeField] LayerMask GroundLayer;
+    [SerializeField] LayerMask ObstacleLayer;
   
 
     private bool JumpPress { get; set; }
     private bool AttackPress { get; set; }
-    private bool IsAttacking { get; set; }
-    private int AttackFrames { get; set; }
+    private bool CanAttack { get; set; }
+    private bool IsDead { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
         JumpPress = false;
         AttackPress = false;
-        IsAttacking = false;
-        AttackFrames = 3;
+        CanAttack = true;
+        IsDead = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (!IsDead)
         {
-            JumpPress = true;
-        }
-        if (Input.GetButtonDown("Attack"))
-        {
-            AttackPress = true;
-        }
+            if (Input.GetButtonDown("Jump"))
+            {
+                JumpPress = true;
+            }
+            if (Input.GetButtonDown("Attack") && CanAttack)
+            {
+                AttackPress = true;
+                CanAttack = false;
+
+            }
 
 
-        // Placeholder horizontal movement
-        if (Input.GetKey(KeyCode.D))
-        {
-            AnimController.SetBool("IsRunning", true);
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
+            // Placeholder horizontal movement
+            if (Input.GetKey(KeyCode.D))
+            {
+                AnimController.SetBool("IsRunning", true);
+                transform.Translate(Vector2.right * Speed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(Vector2.left * Speed * Time.deltaTime);
+            }
 
-        AnimController.SetFloat("CharacterYVelocity", rb2D.velocity.y);
-        AnimController.SetBool("IsGrounded", IsGrounded());
+            AnimController.SetFloat("CharacterYVelocity", rb2D.velocity.y);
+            AnimController.SetBool("IsGrounded", IsGrounded());
+        }
+        
 
     }
 
 
     private void FixedUpdate()
     {
-        if (IsAttacking)
-        {
-            if(AttackFrames > 0)
-            {
-                AttackFrames--;
-            }
-            else
-            {
-                AttackFrames = 3;
-                IsAttacking = false;
-                ZSwordCollider.enabled = false;
-            }
-        }
+        
         if (JumpPress)
         {
             JumpPress = false;
@@ -85,13 +86,50 @@ public class PlayerController : MonoBehaviour
         }
         if (AttackPress)
         {
-            AttackPress = false;
-            IsAttacking = true;
-            ZSwordCollider.enabled = true;
+            
+                AttackPress = false;
+               
+                Attack();
+            
+           
         }
         
     }
 
+
+    private void Attack()
+    {
+        CanAttack = false;
+        ZSwordCollider.enabled = true;
+        ZSwordAnimController.enabled = true;
+        ZSwordAnimController.SetTrigger("AttackTrigger");
+        StartCoroutine(ZSwordCooldown());
+        StartCoroutine(ZSwordDuration());
+    }
+
+    private IEnumerator ZSwordDuration()
+    {
+        if (ZSwordCollider.isActiveAndEnabled)
+        {
+            for (int i = 0; i < AttackDuration; i++)
+            {
+                yield return new WaitForFixedUpdate();
+            }
+            ZSwordCollider.enabled = false;
+        }
+        
+    }
+    private IEnumerator ZSwordCooldown()
+    {
+        if (!CanAttack)
+        {
+            for(int i = 0; i < AttackCooldown; i++)
+            {
+                yield return new WaitForFixedUpdate();
+            }
+            CanAttack = true;
+        }
+    }
 
     private void Jump()
     {
@@ -109,12 +147,31 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = Vector2.down;
         float distance = 0.8f;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance,_groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, GroundLayer);
         if (hit.collider != null)
             return true;
 
         return false;
     }
 
+    private void Death()
+    {
+        IsDead = true;
+        rb2D.simulated = false;
+        AnimController.SetTrigger("DeathTrigger");
+
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collided");
+        if(collision.gameObject.tag == "Destructible" || collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("obstacle collision");
+            Death();
+        }
+    }
 
 }
