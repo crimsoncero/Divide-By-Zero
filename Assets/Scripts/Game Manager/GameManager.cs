@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
 
     public System.Random Random;
 
+
+    public int Score { get { return (int)Math.Ceiling(_scoreFloat); } }
+
     [Header("Platform Generation")]
     [SerializeField] private GameObject FirstPlatform;
     [SerializeField] private GameObject PlatformPrefab;
 
     private Queue<GameObject> PlatformQueue = new Queue<GameObject>();
-
+    private float _scoreFloat;
 
     private void Awake()
     {
@@ -31,11 +34,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Random = new System.Random(DateTime.Now.GetHashCode());
-
+        _scoreFloat = 0;
         PlatformQueue.Enqueue(FirstPlatform);
     }
 
-
+    private void Update()
+    {
+        _scoreFloat += Time.deltaTime;
+    }
     internal void NextPlatform(Vector3 pos)
     {
 

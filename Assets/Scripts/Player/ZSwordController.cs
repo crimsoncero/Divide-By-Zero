@@ -14,15 +14,21 @@ public class ZSwordController : MonoBehaviour
     [SerializeField] private BoxCollider2D SwordCollider;
     [SerializeField] private Animator SwordAnimController;
     [SerializeField] private GameObject ExplosionVFX;
-    [SerializeField] private AudioSource SwordSFX;
+    [SerializeField] private AudioSource[] SwordSFXList;
 
 
     public void Attack(int duration)
     {
         SwordCollider.enabled = true;
         SwordAnimController.SetTrigger("AttackTrigger");
-        SwordSFX.Play();
+        PlaySound();
         StartCoroutine(ZSwordDuration(duration));
+    }
+
+    private void PlaySound()
+    {
+        int index = GameManager.Instance.Random.Next(SwordSFXList.Length);
+        SwordSFXList[index].Play();
     }
 
     private IEnumerator ZSwordDuration(int duration)
