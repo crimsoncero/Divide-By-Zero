@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] private float JumpForce = 600;
     [SerializeField] private float Speed = 6;
-    [SerializeField] private float AttackDuration = 10;
-    [SerializeField] private float AttackCooldown = 30;
+    [SerializeField] private int AttackDuration = 10;
+    [SerializeField] private int AttackCooldown = 30;
     [Space(2)]
     [Header("Component Attachments")]
     [SerializeField] private Rigidbody2D rb2D;
@@ -18,12 +18,11 @@ public class PlayerController : MonoBehaviour
 
     [Space(1)]
     [Header("Z - Sword")]
-    [SerializeField] private BoxCollider2D ZSwordCollider;
-    [SerializeField] private Animator ZSwordAnimController;
+    [SerializeField] private ZSwordController zSwordController;
     
     [SerializeField] LayerMask GroundLayer;
     [SerializeField] LayerMask ObstacleLayer;
-  
+
 
     private bool JumpPress { get; set; }
     private bool AttackPress { get; set; }
@@ -37,6 +36,7 @@ public class PlayerController : MonoBehaviour
         AttackPress = false;
         CanAttack = true;
         IsDead = false;
+       
 
     }
 
@@ -100,25 +100,12 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         CanAttack = false;
-        ZSwordCollider.enabled = true;
-        ZSwordAnimController.enabled = true;
-        ZSwordAnimController.SetTrigger("AttackTrigger");
+        zSwordController.Attack(AttackDuration);
         StartCoroutine(ZSwordCooldown());
-        StartCoroutine(ZSwordDuration());
+
     }
 
-    private IEnumerator ZSwordDuration()
-    {
-        if (ZSwordCollider.isActiveAndEnabled)
-        {
-            for (int i = 0; i < AttackDuration; i++)
-            {
-                yield return new WaitForFixedUpdate();
-            }
-            ZSwordCollider.enabled = false;
-        }
-        
-    }
+    
     private IEnumerator ZSwordCooldown()
     {
         if (!CanAttack)
