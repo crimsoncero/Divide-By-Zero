@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class ZSwordController : MonoBehaviour
@@ -53,7 +50,7 @@ public class ZSwordController : MonoBehaviour
             Vector3 pos = collision.gameObject.transform.position + new Vector3(0, 0, -2);
             Instantiate(ExplosionVFX, pos, Quaternion.identity);
 
-
+            GameManager.Instance.AddDestructibleScore();
             Destroy(collision.gameObject);
         }
 

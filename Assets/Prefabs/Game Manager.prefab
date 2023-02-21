@@ -173,5 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d544b1f2560574e86488805c70332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGM: {fileID: 266146128}
+  PlayerController: {fileID: 0}
+  GamePauseScreen: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  ScorePerWall: 10
+  ScorePerDestructible: 2
   FirstPlatform: {fileID: 0}
   PlatformPrefab: {fileID: 2723479112113540770, guid: b3b19ceffb8d1bb49ab713e6f76291bd, type: 3}

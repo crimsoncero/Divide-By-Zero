@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlatformWallBuilder : MonoBehaviour
 {
     [SerializeField] GameObject[] WallPrefabs;
-
+    [SerializeField] GameObject ScoreCollider;
     [Range(1,20)]
     [SerializeField] int WallBuffer;
     [SerializeField] Transform PlatformBase;
@@ -33,7 +33,7 @@ public class PlatformWallBuilder : MonoBehaviour
 
             // Create a wall element
             Instantiate(WallPrefabs[index], pos, Quaternion.identity, transform);
-
+            Instantiate(ScoreCollider, pos + (Vector3.up * 1.5f), Quaternion.Euler(0,0,90), transform);
             xPos += WallBuffer;
         }
 

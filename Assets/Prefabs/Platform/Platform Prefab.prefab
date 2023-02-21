@@ -128,6 +128,7 @@ MonoBehaviour:
   - {fileID: 5348858076292560369, guid: a7af1ecd0ca7e434d95090c39179c334, type: 3}
   - {fileID: 1818988914722617887, guid: 7ee14a413955e004898fcfe68d1c4e16, type: 3}
   - {fileID: 5891938641555901880, guid: 6be7bd3232e82dc449ab70d552fd16c0, type: 3}
+  ScoreCollider: {fileID: 7942503498744820421, guid: 5403c0d0e3527b446a06fe3ebff82489, type: 3}
   WallBuffer: 6
   PlatformBase: {fileID: 2282908480098971272}
 --- !u!1001 &8267481464726075404

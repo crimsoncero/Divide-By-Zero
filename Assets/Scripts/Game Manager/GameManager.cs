@@ -8,15 +8,24 @@ public class GameManager : MonoBehaviour
 
     public System.Random Random;
 
+    public AudioSource BGM;
 
-    public int Score { get { return (int)Math.Ceiling(_scoreFloat); } }
+
+    public int Score { get; set; }
+    [SerializeField] private PlayerController PlayerController;
+    [SerializeField] private UIManager UIManager;
+    [SerializeField] private GameObject GamePauseScreen;
+    [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private int ScorePerWall;
+    [SerializeField] private int ScorePerDestructible;
 
     [Header("Platform Generation")]
     [SerializeField] private GameObject FirstPlatform;
     [SerializeField] private GameObject PlatformPrefab;
 
+
     private Queue<GameObject> PlatformQueue = new Queue<GameObject>();
-    private float _scoreFloat;
+
 
     private void Awake()
     {
@@ -34,20 +43,42 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Random = new System.Random(DateTime.Now.GetHashCode());
-        _scoreFloat = 0;
+        Score = 0;
         PlatformQueue.Enqueue(FirstPlatform);
     }
 
-    private void Update()
-    {
-        _scoreFloat += Time.deltaTime;
-    }
+
     internal void NextPlatform(Vector3 pos)
     {
 
         GameObject newPlatform = Instantiate(PlatformPrefab,pos,Quaternion.identity);
         PlatformQueue.Enqueue(newPlatform);
         DeletePlatform();
+    }
+
+
+    internal void GamePause(bool state)
+    {
+        PlayerController.Pause(state);
+        GamePauseScreen.SetActive(state);
+        UIManager.UIOpenSFX.Play();
+    }
+
+    internal void GameOver()
+    {
+        BGM.Stop();
+        GameOverScreen.SetActive(true);
+        UIManager.UIOpenSFX.Play();
+    }
+
+    internal void AddWallScore()
+    {
+        Score += ScorePerWall;
+    }
+
+    internal void AddDestructibleScore()
+    {
+        Score += ScorePerDestructible;
     }
 
     private void DeletePlatform()
@@ -58,6 +89,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     
 
 }

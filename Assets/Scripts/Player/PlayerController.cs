@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [Header("Component Attachments")]
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private Animator AnimController;
+    [SerializeField] private AudioSource DeathSFX;
 
     [Space(1)]
     [Header("Z - Sword")]
@@ -27,7 +28,8 @@ public class PlayerController : MonoBehaviour
     private bool JumpPress { get; set; }
     private bool AttackPress { get; set; }
     private bool CanAttack { get; set; }
-    private bool IsDead { get; set; }
+    private bool IsActive { get; set; }
+    private bool IsRunning { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,8 @@ public class PlayerController : MonoBehaviour
         JumpPress = false;
         AttackPress = false;
         CanAttack = true;
-        IsDead = false;
+        IsActive = true;
+        IsRunning = false;
        
 
     }
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsDead)
+        if (IsActive)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -56,17 +59,19 @@ public class PlayerController : MonoBehaviour
 
             }
 
-
-            // Placeholder horizontal movement
             if (Input.GetKey(KeyCode.D))
             {
+                IsRunning = true;
                 AnimController.SetBool("IsRunning", true);
+            }
+
+
+            // Placeholder horizontal movement
+            if (IsRunning)
+            {
                 transform.Translate(Vector2.right * Speed * Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Translate(Vector2.left * Speed * Time.deltaTime);
-            }
+            
 
             AnimController.SetFloat("CharacterYVelocity", rb2D.velocity.y);
             AnimController.SetBool("IsGrounded", IsGrounded());
@@ -96,6 +101,32 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void JumpButton()
+    {
+        if (IsActive)
+        {
+            JumpPress = true;
+        }
+        
+    }
+
+    public void AttackButton()
+    {
+        if(IsActive && CanAttack)
+        {
+            AttackPress = true;
+            CanAttack = false;
+        }
+        
+    }
+
+    internal void Pause(bool state)
+    {
+        IsActive = !state;
+        rb2D.simulated = !state;
+        AnimController.enabled = !state;
+
+    }
 
     private void Attack()
     {
@@ -143,13 +174,15 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-        IsDead = true;
+        IsActive = false;
         rb2D.simulated = false;
+        DeathSFX.Play();
+        GameManager.Instance.GameOver();
         AnimController.SetTrigger("DeathTrigger");
 
     }
 
-
+  
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
